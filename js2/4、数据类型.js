@@ -12,3 +12,4 @@ isSingleDog = true;
 // 4、undefined 和 null
 var undef = undefined;
 var nul = null;
+// 
