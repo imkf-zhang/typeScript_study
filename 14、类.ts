@@ -13,7 +13,7 @@ class City {
 
     // 成员方法：定义在类中
     about() {
-        console.log(`兄弟，跳${this.cname1},危险系数为${this.clevel1}级`)
+        console.log(`兄弟，跳${this.cname1},危险系数为${this.clevel1}级`);
     }
 }
 let c1 = new City('皮卡多',9)
