@@ -10,7 +10,7 @@ var City = /** @class */ (function () {
     }
     // 成员方法：定义在类中
     City.prototype.about = function () {
-        console.log("\u5144\u5F1F\uFF0C\u8DF3" + this.cname1 + ",\u5371\u9669\u7CFB\u6570\u4E3A" + this.clevel1 + "\u7EA7");
+        console.log("\u5144\u5F1F\uFF0C\u8DF3".concat(this.cname1, ",\u5371\u9669\u7CFB\u6570\u4E3A").concat(this.clevel1, "\u7EA7"));
     };
     return City;
 }());
