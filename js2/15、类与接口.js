@@ -68,6 +68,7 @@ var Point = /** @class */ (function () {
     }
     return Point;
 }());
+var point3d = { x: 1, y: 2, z: 3 };
 // why?
 // 一个类可以当做类来用，也可以当做一个类型来用
 // demo： Point 可以当做类来用，也可以当做类型来用
@@ -82,3 +83,4 @@ function printPoint1(p) {
     console.log(p);
 }
 printPoint1(new Point(1, 2));
+// 上例中我们新声明的 PointInstanceType 类型，与声明 class Point 时创建的 Point 类型是等价的

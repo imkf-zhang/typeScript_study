@@ -7,3 +7,7 @@ function sum1() {
 function sum2() {
     var args = arguments;
 }
+// Declare a tuple type
+var x;
+// Initialize it
+x = ['hello', 10]; // OK
