@@ -66,8 +66,85 @@ function printLength<T extends instanceLength>(arg: T): T {
 
 function copy<T extends U, U>(target: T, source: U): T {
   for (const key in source) {
-    // (<T>source)[key]
-    target[key] = source[key]
+    target[key] = (<T>source)[key]
   }
   return target
 }
+
+
+// 泛型接口
+
+let kate0: (x: number, y: number) => number = function(x: number,y:number): number {
+  return x + y
+}
+interface addInstance {
+  (x: number, y: number): number
+}
+let kate12: addInstance = function(x: number,y:number): number {
+  return x + y
+}
+
+
+interface CreateArray {
+  <T>(length: number, value: T): Array<T>
+}
+let creatArr: CreateArray = function <T>(length: number, value: T): Array<T> {
+  let result: T[]= [];
+  for (let index = 0; index < length; index++) {
+    result[index] = value
+  }
+  return result
+}
+creatArr(3, 'X')
+
+
+// 上面的可以改写为
+interface CreateArray1<T> {
+  (length: number, value: T): Array<T>
+}
+let creatArr1: CreateArray1<any> = function <T>(length: number, value: T): Array<T> {
+  let result: T[]= [];
+  for (let index = 0; index < length; index++) {
+    result[index] = value
+  }
+  return result
+}
+creatArr1(3, 'X')
+
+
+
+// 泛型类
+
+// class ShuziNumber<T> {
+//  public zeroValue: T;
+//  public add: (x: T, y: T) => T;
+// }
+
+// let shuziStance = new ShuziNumber<number>()
+// shuziStance.zeroValue = 0
+// shuziStance.add = function(x,y) {
+//   return x + y
+// }
+
+// class GenericNumber<T> {
+//   zeroValue: T ;
+//   add: (x: T, y: T) => T;
+
+// }
+
+// let myGenericNumber = new GenericNumber<number>();
+// myGenericNumber.zeroValue = 0;
+// myGenericNumber.add = function(x, y) { return x + y; };
+
+
+
+// 泛型的类型参数可以设置默认值
+function createArrayOther12<T = string>(length: number, value: T): Array<T> {
+  let result: T[] = []
+  for (let index = 0; index < length; index++) {
+    result[index] = value
+  }
+  return result;
+}
+createArrayOther12<string>(3, 'x'); // ['x', 'x', 'x']
+createArrayOther12(3, 'x'); 
