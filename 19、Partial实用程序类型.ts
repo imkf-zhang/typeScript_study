@@ -33,3 +33,14 @@ type PartialUsery1 = Partial<Usery>
 // in 关键字，这个关键字的作用是用于映射类型的。在这里 in 表示的是迭代联合类型中的每个属性，而泛型 P 就表示这些属性
 
 
+
+interface Person {    monicker: string;    age: number;    sex?: string;}
+/*** type PersonOptions = {*   name: string;*   age: number;*   sex: string;* }*/
+type PersonRequired = Required<Person>; 
+// 实现原理
+type Required<T> = {    [P in keyof T]-?: T[P]  }
+  // `-?` 符号是一个操作符，用于将属性变为必需的，即必须存在并且不能为 undefined 或 null。}
+
+
+// 实现原理/** * Make all properties in T readonly */
+type Readonly<T> = {  readonly [P in keyof T]: T[P];};
